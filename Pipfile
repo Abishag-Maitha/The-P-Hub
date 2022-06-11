@@ -11,6 +11,8 @@ cloudinary = "*"
 django-bootstrap4 = "*"
 django-star-ratings = "*"
 django-heroku = "*"
+psycopg2 = "*"
+gunicorn = "*"
 
 [dev-packages]
 
