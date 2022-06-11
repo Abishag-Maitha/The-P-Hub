@@ -29,7 +29,7 @@ def register(request):
             profile.save()
 
             # messages.success(request, f'Successfully created Account!.You can now login as {username}!')
-        return redirect('login')
+        return redirect('log_user')
     else:
         form= RegistrationForm()
         prof=profileForm()
@@ -37,7 +37,7 @@ def register(request):
         'form':form,
         'profForm': prof
     }
-    return render(request, 'users/register.html', params)
+    return render(request, 'auth/register.html', params)
 
 def searchprofile(request):
     if 'searchUser' in request.GET and request.GET['searchUser']:
@@ -53,7 +53,7 @@ def searchprofile(request):
         message = "You haven't searched for any profile"
     return render(request, 'search.html', {'message': message})
 
-@login_required(login_url='login')   
+@login_required(login_url='log_user')   
 def addProject(request):
     current_user = request.user
     user_profile = Profile.objects.get(user = current_user)
@@ -69,7 +69,7 @@ def addProject(request):
     return render(request,'newProject.html',{'form':form})    
 
 def profile(request,id):
-    prof = Profile.objects.get(user = id)
+    prof = Profile.objects.get(id = id)
     return render(request,'profile.html',{"profile":prof})
 
 def editprofile(request):
@@ -106,7 +106,7 @@ def projects(request,id):
     proj = Projects.objects.get(id = id)
     return render(request,'readmore.html',{"projects":proj})
 
-@login_required(login_url='login')   
+@login_required(login_url='log_user')   
 def rate(request,id):
     # reviews = Revieww.objects.get(projects_id = id).all()
     # print
