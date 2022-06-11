@@ -18,14 +18,14 @@
 
         </div>
 
-        {% if results %} {% for res in results %}
+        {% if results %} {% for results in results %}
 
         <div class="row pt-3">
             <div class="col-md-8">
-                <img src="{{res.projectscreenshot.url}}" alt="oops cant display" height="300px">
+                <img src="{{results.projectscreenshot.url}}" alt="oops cant display" height="300px">
             </div>
             <div class="col-md-4">
-                <span><strong><a href="{{res.projecturl}}">{{res.description}}</a></strong></span>
+                <span><strong><a href="{{results.projecturl}}">{{results.description}}</a></strong></span>
             </div>
         </div>
         {%endfor%} {%endif%}

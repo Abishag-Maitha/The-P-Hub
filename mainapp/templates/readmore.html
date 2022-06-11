@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm">
                 <div class="view view-cascade overlay">
-                    <img class="img-fluid" src="{{projects.projectscreenshot.url}}" alt="Card image cap">
+                    <img class="img-fluid" src="{{projects.projectimage.url}}" alt="Card image cap">
                     <a href="#!">
                         <div class="mask rgba-white-slight"></div>
                     </a>
@@ -45,7 +45,7 @@
                     {% ratings projects %}
                 </div>
             </div>
-            <a href="{% url " rate " projects.id %}" class="h1">Review</a>
+            <a href="{% url 'rate' projects.id %} " class="h1 ">Review</a>
     </div>
     <div>
         {%endblock%}
