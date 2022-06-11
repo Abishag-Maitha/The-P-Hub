@@ -1,4 +1,4 @@
- {%extends "base.html"%} {% load bootstrap3 %} {% block content %}
+ {%extends "base.html"%} {% load bootstrap4 %} {% block content %}
 <div class="container" style="font-family: 'Jost', sans-serif;">
     <div class="row">
         <!-- Empty div -->
@@ -19,7 +19,7 @@
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
                         </div>
-                        <p>Already have an account? <a href="/login"> Log In</a></p>
+                        <p>Already have an account? <a href="{% url 'log_user'%}"> Log In</a></p>
                         <input type="hidden" name="next" value="{{next}}">
 
                     </form>
