@@ -10,18 +10,21 @@
             {% endif %}
             <div class="panel panel-default">
 
-                <div class="panel-body card p-5 mt-5">
-                    <h3 class="text-center">Sign In</h3>
 
-                    <form method="post">
+                <div class="panel-body card p-5 mt-5" style="background-color:#e1c699 ;">
+                    <h3 class="text-center" style="color:#4b1223;">Sign In</h3>
+
+                    <form method="post" style="color:#4b1223;">
                         {% csrf_token %} {% bootstrap_form form %}
 
                         <div class="form-group">
-                            <input type="submit" class="btn btn-primary btn-sm" value="Login">
+                            <input type="submit" class="btn btn-sm" value="Login" style="background-color:#4b1223 ; color: white;">
                         </div>
                     </form>
                     <a href="" class="D-block mx-auto mb-3">Forgot password? </a>
-                    <p class="container">Don't have an account? <a href="{% url 'registration' %}"> Sign Up</a></p>
+                    <p class="container ms-0">Don't have an account?
+                        <a href="{% url 'registration' %}"> Sign Up</a>
+                    </p>
 
                 </div>
 
@@ -31,5 +34,4 @@
         <!-- empty div -->
     </div>
 </div>
-
 {% endblock %}
