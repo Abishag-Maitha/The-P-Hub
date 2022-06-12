@@ -6,10 +6,10 @@
                 {% if results %}
                 <h5 class="text-center">Found {{ results|length }} projects{{ results|pluralize }}</h5>
                 {% else %}
-                <h5 class="text-center"> Found 0 user with username <strong>{{message}}</strong></h5>
+                <h5 class="text-center"> Found 0 users with username <strong>{{user.username}}</strong></h5>
 
                 <a class="d-block mx-auto" href="/">
-                    <button class="btn btn-sm btn-info d-block mx-auto">Back Home</button>
+                    <button class="btn btn-sm btn-info d-block mx-auto" style="background-color:#4b1223; text-decoration: none;">Back Home</button>
                 </a>
                 {% endif %}
                 <hr>
@@ -22,13 +22,13 @@
 
         <div class="row pt-3">
             <div class="col-md-8">
-                <img src="{{results.projectscreenshot.url}}" alt="oops cant display" height="300px">
+                <img src="{{results.projectimage.url}}" alt="oops cant display" height="300px">
             </div>
             <div class="col-md-4">
                 <span><strong><a href="{{results.projecturl}}">{{results.description}}</a></strong></span>
             </div>
         </div>
-        {%endfor%} {%endif%}
+        {% endfor %} {% endif %}
 
     </div>
 
