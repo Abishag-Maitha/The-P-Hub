@@ -24,7 +24,10 @@
                     <a href="{{projects.projecturl}}">
                         <button class="btn btn-primary">Check out</button>
                     </a>
-                    <h5 style="padding-left: 120%;" class="text-secondary">By: {{projects.user}}</h5>
+                </div>
+                <div>
+                    <h5 style="padding-left: 120%;" class="text-danger">Posted By: {{projects.user}}</h5>
+                    <p class="text-secondary ml-4">{{projects.created|timesince}}</p>
                 </div>
             </div>
         </div>
@@ -45,7 +48,7 @@
                     {% ratings projects %}
                 </div>
             </div>
-            <a href="{% url 'rate' projects.id %} " class="h1 ">Review</a>
+            <a href="{% url 'rate' projects.id %} " class="h4 " style="background-color:#4b1223; color:white; text-decoration:none;">Review</a>
     </div>
     <div>
         {%endblock%}

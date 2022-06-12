@@ -35,6 +35,8 @@ def register(request):
     }
     return render(request, 'auth/register.html', params)
 
+
+
 def searchprofile(request):
     if 'searchUser' in request.GET and request.GET['searchUser']:
         name = request.GET.get("searchUser")
