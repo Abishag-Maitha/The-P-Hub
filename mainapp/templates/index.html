@@ -5,7 +5,7 @@
         <div class="jumbotron jumbotron-fluid" style="background-color: #e1c699;">
             <div class="container">
                 <h2 class="display-4">The P-Hub</h2>
-                <p class="lead">Check out other peoples projects, Review and Rate them! You can also post yours to be reviewed!
+                <p class="lead text-dark">Check out other peoples projects, Review and Rate them! You can also post yours to be reviewed!
                 </p>
             </div>
         </div>
@@ -13,16 +13,37 @@
         <div class="row">
             {% for proj in projects %}
             <div class="col-md-4">
-                <div class="card">
+                <div class="card shadow">
                     <div class="view view-cascade overlay">
-                        <img src="{{proj.projectimage.url}}" class="img-fluid" alt="">
+                        <img src="{{proj.projectimage.url}}" class="img-fluid w-100" alt="" style="aspect-ratio: 1;">
                         <a href="projects/{{proj.id}}">
                             <div class="mask rgba-white-slight"></div>
                         </a>
                     </div>
                     <div class="card-body">
-                        <h5 class="">{{proj.title}}</h5>
-                        <a href="projects/{{proj.id}}">Readmore</a>
+                        <div class="row">
+                            <h5 class="col-md-6">{{proj.title}}</h5>
+                            <div class="col-md-6">
+                                <p> <a href="projects/{{proj.id}}">Readmore</a></p>
+                            </div>
+                        </div>
+
+                        <div>
+                            {% if proj.reviews %} {% for review in proj.reviews.all %}
+                            <div class="d-flex justify-content-around w-75">
+                                <small><strong class="me-2">Design:</strong>{{review.design}}</small>
+                                <small><strong class="me-2">Usability:</strong>{{review.usability}}</small>
+                                <small><strong class="me-2">Content:</strong>{{review.content}}</small>
+
+                            </div>
+                            {% endfor %} {% endif %}
+                            <div>
+                                <small class="me-2">Posted by:{{proj.user}}</small>
+                                <small class="me-2">Created on:{{proj.datecreated}}</small>
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
