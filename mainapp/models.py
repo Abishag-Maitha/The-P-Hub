@@ -7,7 +7,7 @@ from cloudinary.models import CloudinaryField
 class Profile(models.Model):
     photo = CloudinaryField('images', blank=True)
     Bio = models.CharField(max_length=30, blank=True)
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(User,on_delete=models.CASCADE, related_name='profile')
     datecreated= models.DateField(auto_now_add=True )
 
     def __str__(self):
@@ -57,7 +57,7 @@ RATE_CHOICES = [
 
 class Revieww(models.Model):
     user = models.ForeignKey(User,on_delete = models.CASCADE)
-    projects = models.ForeignKey(Projects,on_delete = models.CASCADE)
+    projects = models.ForeignKey(Projects,on_delete = models.CASCADE, related_name='reviews')
     date = models.DateField(auto_now_add=True)
     text = models.TextField(max_length=5000,blank=True)
     design = models.PositiveSmallIntegerField(choices = RATE_CHOICES,default= 0)
