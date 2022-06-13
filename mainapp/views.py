@@ -37,18 +37,17 @@ def register(request):
 
 
 
-def searchprofile(request):
-    if 'searchUser' in request.GET and request.GET['searchUser']:
-        name = request.GET.get("searchUser")
-        searchResults = Projects.search_projects(name)
-       
+def searchproject(request):
+    if request.method == 'GET':
+        title = request.GET.get("title")
+        results = Projects.objects.filter(title__icontains=title).all()
         params = {
-            'results': searchResults,
+            'results': results
             
         }
         return render(request, 'search.html', params)
-    # else:
-    #     message = "You haven't searched for any profile"
+    else:
+        message = "You haven't searched for any profile"
     return render(request, 'search.html')
 
 @login_required(login_url='log_user')   
