@@ -1,11 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 # Create your models here.
 class Profile(models.Model):
-    photo = CloudinaryField('images', blank=True)
+    photo = CloudinaryField('images')
     Bio = models.CharField(max_length=30, blank=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE, related_name='profile')
     datecreated= models.DateField(auto_now_add=True )
@@ -22,6 +24,7 @@ class Profile(models.Model):
     @classmethod
     def search_profile(cls, name):
         return cls.objects.filter(user__username__icontains=name).all()
+
 
 class Projects(models.Model):
     title = models.CharField(max_length=30)
