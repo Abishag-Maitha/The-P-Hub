@@ -105,8 +105,7 @@ def projects(request,id):
 
 @login_required(login_url='log_user')   
 def rate(request,id):
-    # reviews = Revieww.objects.get(projects_id = id).all()
-    # print
+
     project = Projects.objects.get(id = id)
     user = request.user
     if request.method == 'POST':
