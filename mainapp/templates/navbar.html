@@ -41,10 +41,12 @@
                     </div>
                 </form>
             </li>
+            {% if request.user.is_authenticated %}
             <li>
+
                 <a href="{% url 'profile' user.id %}"><img src="{{request.user.profile.photo.url}}" alt="" style="width:2em; aspect-ratio:1; clip-path:circle()"></a>
             </li>
-
+            {% endif %}
 
         </ul>
     </div>
